@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css">
+
+</head>
+<body>
+
+    <div class="toast warning">
+        <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill-opacity="1"></path>
+        </svg>
+      
+        <div class="icon-container">
+          <i class="fa-duotone fa-regular fa-triangle-exclamation icon"></i>
+        </div>
+        <div class="message-text-container">
+          <p class="message-text">Warning message</p>
+          <p class="sub-text">We think you should check it</p>
+        </div>
+      </div>
+  
+      <div class="toast error">
+          <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill-opacity="1"></path>
+          </svg>
+        
+          <div class="icon-container">
+              <i class="fa-regular fa-circle-xmark icon"></i>
+          </div>
+          <div class="message-text-container">
+            <p class="message-text">Error message</p>
+            <p class="sub-text">Something went wrong</p>
+          </div>
+        </div>
+  
+        <div class="toast success">
+          <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill-opacity="1"></path>
+          </svg>
+      
+          <div class="icon-container">
+              <i class="fa-solid fa-circle-check icon"></i>
+          </div>
+          <div class="message-text-container">
+              <p class="message-text">Success!</p>
+              <p class="sub-text">Your action was successful.</p>
+          </div>
+      </div>
+
+    <section class="dots-container" id="loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </section>
+    <div class="sidebar">
+        
+        <div class="links">
+            <h3>Dashboard</h3>
+            <a href="" class="link button-link active">
+                <i class="fa-sharp-duotone fa-regular fa-chart-pie"></i>
+                Analysis
+            </a>
+            <a href="" class="link button-link">
+                <i class="fa-duotone fa-solid fa-transformer-bolt"></i>
+                Energy generation
+            </a>
+            <a href="" class="link button-link">
+                <i class="fa-duotone fa-light fa-battery-three-quarters"></i>
+                Energy consumbtion
+            </a>
+            <a href="" class="link button-link">
+                <i class="fa-sharp-duotone fa-regular fa-database"></i>
+                Storage unit
+            </a>
+        </div>
+    </div>
+    <header>
+        <div class="logo">
+            <img src="./assets/images/logo-2.jpg" alt="">
+        </div>
+        
+        <div class="profile">
+            <img src="./assets/images/user.png" id="user-img" alt="">
+            <p id="header-name">Eyad Ashraf</p>
+            <i class="fa-duotone fa-regular fa-caret-down"></i>
+        </div>
+        <div class="profile-dropdown">
+            <a href="" id="profile-button"><i class="fa-duotone fa-solid fa-user-gear"></i> Profile</a>
+            <hr>
+            <a href="./contact.html" id="profile-button"><i class="fa-duotone fa-regular fa-circle-question"></i> Support</a>
+            <hr>
+            <a href="" id="signout"><i class="fa-duotone fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </header>
+
+    <section class="body">
+        <div class="content" id="profile-content">
+            <div class="row">
+                <div class="card img-card">
+                    <img src="./assets/images/user.png" alt="" id="profile-img">
+                    <input type="file" accept="image/*" id="profile-img-input">
+                </div>
+                <div class="card profile-card">
+                    <button class="edit"><i class="fa-duotone fa-solid fa-user-pen"></i> Edit</button>
+                    <h3><i class="fa-duotone fa-solid fa-user"></i> Personal information</h3>
+                    <div class="row">
+                        <div class="field">
+                            <label for="">Name</label>
+                            <p id="name">Username</p>
+                            <input type="text" id="name-input">
+                        </div>
+                        <div class="field">
+                            <label for="">Email</label>
+                            <p id="email">Useremail</p>
+                            <input type="email" id="email-input" readonly>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button id="update-profile">Update profile</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card passwrod-card">
+                    <h3><i class="fa-duotone fa-solid fa-lock-keyhole"></i> Change password</h3>
+                    <form class="row">
+                        <div class="field">
+                            <label for="cuurent-password">Current password</label>
+                           <input type="password" id="current-password">
+                        </div>
+                        <div class="field">
+                            <label for="new-password">New password</label>
+                           <input type="password" id="new-password">
+                        </div>
+                        <div class="field">
+                            <label for="confirm-password">Confirm password</label>
+                           <input type="password" id="confirm-password">
+                        </div>
+                    </form>
+                    <div class="buttons">
+                        <button type="submit" id="password-change" class="disabled" disabled>Change password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content displayed" id="analysis-content">
+            <h1>Analysis</h1>
+        </div>
+        <div class="content" id="energy-generation-content">
+            <div class="small-cards">
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header">
+                  <div>
+                    <h5 class="amount">Solar Irradians</h5>
+                    <p class="description">Sales this week</p>
+                  </div>
+                  <div class="percentage">
+                    23%
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                    </svg>
+                  </div>
+                </div>
+                <div id="main-chart"></div>
+                <div class="footer">
+                  <div class="actions">
+                    
+                    <a href="#" class="report-button">
+                      Sales Report
+                      <svg class="arrow-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="half-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="icon-container">
+                                <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 19">
+                                    <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
+                                    <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="value">3.4k</h5>
+                                <p class="description">Generated current</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="percentage">42.5%</span>
+                        </div>
+                    </div>
+            
+                    <div class="stats">
+                        <dl>
+                            <dt>Money spent:</dt>
+                            <dd>$3,232</dd>
+                        </dl>
+                        <dl>
+                            <dt>Conversion rate:</dt>
+                            <dd>1.2%</dd>
+                        </dl>
+                    </div>
+            
+                    <div id="column-chart"></div>
+            
+                    <div class="footer">
+                        
+                        <a href="#" class="report-button">Leads Report</a>
+                    </div>
+                </div>
+                <div class="bar-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <h5 class="title">Power</h5>
+                            <svg class="info-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z"/>
+                            </svg>
+                        </div>
+                        <div class="profit-info">
+                            <span class="profit-rate">
+                                Profit rate 23.5%
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="grid">
+                        <dl>
+                            <dt>Profit</dt>
+                            <dd>$5,405</dd>
+                        </dl>
+                        <dl>
+                            <dt>Income</dt>
+                            <dd>$23,635</dd>
+                        </dl>
+                        <dl>
+                            <dt>Expense</dt>
+                            <dd>-$18,230</dd>
+                        </dl>
+                    </div>
+        
+                    <div id="bar-chart"></div>
+        
+                    <div class="footer">
+                      
+                        <div id="lastDaysdropdown" class="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Yesterday</a></li>
+                                <li><a href="#">Today</a></li>
+                                <li><a href="#">Last 7 days</a></li>
+                                <li><a href="#">Last 30 days</a></li>
+                                <li><a href="#">Last 90 days</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="revenue-report">Revenue Report</a>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <h1>This is the content of the PDF</h1>
+        <p>This content will be captured and saved as a PDF file.</p>
+            </div>
+            <button id="download-pdf">Download report</button>
+              </div>  
+              </div>  
+
+        </div>
+        <div class="content" id="energy-consumbtion-content">
+            <div class="small-cards">
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header">
+                  <div>
+                    <h5 class="amount">Solar Irradians</h5>
+                    <p class="description">Sales this week</p>
+                  </div>
+                  <div class="percentage">
+                    23%
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                    </svg>
+                  </div>
+                </div>
+                <div id="main-chart-two"></div>
+                <div class="footer">
+                  <div class="actions">
+                    
+                    <a href="#" class="report-button">
+                      Sales Report
+                      <svg class="arrow-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="half-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="icon-container">
+                                <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 19">
+                                    <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
+                                    <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="value">3.4k</h5>
+                                <p class="description">Generated current</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="percentage">42.5%</span>
+                        </div>
+                    </div>
+            
+                    <div class="stats">
+                        <dl>
+                            <dt>Money spent:</dt>
+                            <dd>$3,232</dd>
+                        </dl>
+                        <dl>
+                            <dt>Conversion rate:</dt>
+                            <dd>1.2%</dd>
+                        </dl>
+                    </div>
+            
+                    <div id="column-chart-two"></div>
+            
+                    <div class="footer">
+                        
+                        <a href="#" class="report-button">Leads Report</a>
+                    </div>
+                </div>
+                <div class="bar-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <h5 class="title">Power</h5>
+                            <svg class="info-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z"/>
+                            </svg>
+                        </div>
+                        <div class="profit-info">
+                            <span class="profit-rate">
+                                Profit rate 23.5%
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="grid">
+                        <dl>
+                            <dt>Profit</dt>
+                            <dd>$5,405</dd>
+                        </dl>
+                        <dl>
+                            <dt>Income</dt>
+                            <dd>$23,635</dd>
+                        </dl>
+                        <dl>
+                            <dt>Expense</dt>
+                            <dd>-$18,230</dd>
+                        </dl>
+                    </div>
+        
+                    <div id="bar-chart-two"></div>
+        
+                    <div class="footer">
+                      
+                        <a href="#" class="revenue-report">Revenue Report</a>
+                    </div>
+                </div>
+            </div>
+           
+
+        </div>
+        <div class="content" id="storage-unit-content">
+            <div class="small-cards">
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <div class="con">
+                        <h3>Total sales</h3>
+                        <h2>1452$</h2>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-duotone fa-regular fa-lightbulb-dollar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header">
+                  <div>
+                    <h5 class="amount">Battery charge</h5>
+                    <p class="description">Sales this week</p>
+                  </div>
+                  <div class="percentage">
+                    23%
+                    <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                    </svg>
+                  </div>
+                </div>
+                <div id="main-chart-three"></div>
+                <div class="footer">
+                  <div class="actions">
+                    
+                    <a href="#" class="report-button">
+                      Sales Report
+                      <svg class="arrow-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="half-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="icon-container">
+                                <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 19">
+                                    <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
+                                    <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="value">3.4k</h5>
+                                <p class="description">Temprature</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="percentage">42.5%</span>
+                        </div>
+                    </div>
+            
+                    <div class="stats">
+                        <dl>
+                            <dt>Money spent:</dt>
+                            <dd>$3,232</dd>
+                        </dl>
+                        <dl>
+                            <dt>Conversion rate:</dt>
+                            <dd>1.2%</dd>
+                        </dl>
+                    </div>
+            
+                    <div id="column-chart-three"></div>
+            
+                    <div class="footer">
+                        
+                        <a href="#" class="report-button">Leads Report</a>
+                    </div>
+                </div>
+                <div class="bar-card">
+                    <div class="header">
+                        <div class="header-left">
+                            <h5 class="title">Health</h5>
+                            <svg class="info-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z"/>
+                            </svg>
+                        </div>
+                        <div class="profit-info">
+                            <span class="profit-rate">
+                                Profit rate 23.5%
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="grid">
+                        <dl>
+                            <dt>Profit</dt>
+                            <dd>$5,405</dd>
+                        </dl>
+                        <dl>
+                            <dt>Income</dt>
+                            <dd>$23,635</dd>
+                        </dl>
+                        <dl>
+                            <dt>Expense</dt>
+                            <dd>-$18,230</dd>
+                        </dl>
+                    </div>
+        
+                    <div id="bar-chart-three"></div>
+        
+                    <div class="footer">
+                      
+                   
+                        <a href="#" class="revenue-report">Revenue Report</a>
+                    </div>
+                </div>
+            </div>
+              </div>  
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="./assets/js/dashboard.js"></script>
+
+    <script src="./assets/js/Charts.js"></script>
+
+</body>
+</html>

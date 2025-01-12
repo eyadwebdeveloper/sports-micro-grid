@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== REMIXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+
+        <title>Arena</title>
+    </head>
+    <body>
+
+        <section class="dots-container" id="loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </section>
+          
+        <!--=============== HEADER ===============-->
+        <header class="header">
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="#" class="nav__logo">
+                        <img src="./assets/images/logo-1.png" alt="">
+                    </a>
+    
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
+                    </div>
+                </div>
+
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+             
+
+                        <!--=============== DROPDOWN 1 ===============-->
+                        <li class="dropdown__item">                      
+                            <div class="nav__link dropdown__button">
+                                Home <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-duotone fa-solid fa-earth-americas"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Statistics</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#statistics" class="dropdown__link">Creators on the platform</a>
+                                            </li>
+                                            <li>
+                                                <a href="#statistics" class="dropdown__link">Flat platform fee</a>
+                                            </li>
+                                            <li>
+                                                <a href="#statistics" class="dropdown__link">Uptime guarantee</a>
+                                            </li>
+                                            <li>
+                                                <a href="#statistics" class="dropdown__link">Paid out to creators</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-duotone fa-regular fa-file"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Bussiness model</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">PDF model</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Get started</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Learn more</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-duotone fa-light fa-screen-users"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Our team</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#team" class="dropdown__link">Mo'men Ashraf</a>
+                                            </li>
+                                            <li>
+                                                <a href="#team" class="dropdown__link">Ibraam Youssef</a>
+                                            </li>
+                                            <li>
+                                                <a href="#team" class="dropdown__link">Eyad Desoky</a>
+                                            </li>
+                                            <li>
+                                                <a href="./contact.html" class="dropdown__link">Contact us</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-duotone fa-solid fa-code"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Code</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#code" class="dropdown__link">Add to project</a>
+                                            </li>
+                                            <li>
+                                                <a href="#code" class="dropdown__link">View on github</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <div class="switch-container">
+                            <label class="switch">
+                                <input type="checkbox" id="mode-switch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="background-shape" aria-hidden="true">
+                <div class="shape"></div>
+            </div>
+            <a href="" class="link">Announcing our new funding <span>Read more</span> <i class="ri-arrow-right-line"></i></a>
+            <h1>Data to enrich your online business</h1>
+            <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
+            <div class="links">
+               <a href="" class="button-primary">Get started</a>
+               <a href="" class="button-secondry">Learn more</a>
+            </div>
+            <div class="background-blur" aria-hidden="true">
+                <div class="gradient-shape"></div>
+            </div>
+        </section>
+
+        <section class="statistics" id="statistics">
+            <img src="./assets/images/stats.png" alt="">
+            <div class="statistics-content">
+                <h3 class="sub-title">Our track record</h3>
+                <h2 class="title">Trusted by thousands of creators worldwide</h2>
+                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                <div class="stats-cards">
+                    <div class="row">
+                        <div class="stats-card">
+                            <h4>8,000+</h4>
+                            <p>Creators on the platform</p>
+                        </div>
+                        <div class="stats-card">
+                            <h4>3%</h4>
+                            <p>Flat platform fee</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="stats-card">
+                            <h4>99.9%</h4>
+                            <p>Uptime guarantee</p>
+                        </div>
+                        <div class="stats-card">
+                            <h4>$70M</h4>
+                            <p>Paid out to creators</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="model">
+            <div class="model-content">
+                <h3 class="sub-title">Discover we</h3>
+                <h2 class="title">Discover our Bussiness model for farther application</h2>
+                <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt.</p>
+                <div class="links">
+                    <a href="" class="button-primary">Get started</a>
+                    <a href="" class="button-secondry">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <img src="./assets/images/phone.png" alt="">
+
+        </section>
+
+        <section class="team" id="team">
+            <h3 class="sub-title">Meet our leadership</h3>
+            <h2 class="title">Our Team</h2>
+            <p class="team-text">We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.</p>
+        
+            <div class="team-container">
+                <!-- Card -->
+                <div class="team-card">
+                    <div class="card__border">
+                        <div class="card__perfil">
+                            <img src="./assets/images/eyad-desoky.png" alt="card image" class="card__img">
+                        </div>
+                    </div>
+    
+                    <h3 class="card__name">Eyad Desoky</h3>
+                    <span class="card__profession">CO-Worker</span>
+    
+                    <!-- Card info -->
+                    <div class="info">
+                        <div class="info__icon">
+                            <i class="fa-duotone fa-regular fa-circle-info"></i>
+                        </div>
+    
+                        <div class="info__border">
+                            <div class="info__perfil">
+                                <img src="./assets/images/eyad-desoky.png" alt="card image" class="info__img">
+                            </div>
+                        </div>
+    
+                        <div class="info__data">
+                            <h3 class="info__name">Eyad El-Desoky</h3>
+                            <span class="info__profession">Co-Wroker Head</span>
+                            <span class="info__location">Giza - Egypt</span>
+                        </div>
+    
+                        <div class="info__social">
+                            <a href="https://www.linkedin.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://dribbble.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://github.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card -->
+                <div class="team-card">
+                    <div class="card__border">
+                        <div class="card__perfil">
+                            <img src="./assets/images/momen-ashraf.png" alt="card image" class="card__img">
+                        </div>
+                    </div>
+    
+                    <h3 class="card__name">Mo'men Ashraf</h3>
+                    <span class="card__profession">CO-Worker</span>
+    
+                    <!-- Card info -->
+                    <div class="info">
+                        <div class="info__icon">
+                            <i class="fa-duotone fa-regular fa-circle-info"></i>
+                        </div>
+    
+                        <div class="info__border">
+                            <div class="info__perfil">
+                                <img src="./assets/images/momen-ashraf.png" alt="card image" class="info__img">
+                            </div>
+                        </div>
+    
+                        <div class="info__data">
+                            <h3 class="info__name">Mo'men Ashraf Fouad</h3>
+                            <span class="info__profession">Co-Wroker Head</span>
+                            <span class="info__location">Giza - Egypt</span>
+                        </div>
+    
+                        <div class="info__social">
+                            <a href="https://www.linkedin.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://dribbble.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://github.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card -->
+                <div class="team-card">
+                    <div class="card__border">
+                        <div class="card__perfil">
+                            <img src="./assets/images/ibraam-youssef.png" alt="card image" class="card__img">
+                        </div>
+                    </div>
+    
+                    <h3 class="card__name">Ibraam Youssef</h3>
+                    <span class="card__profession">CO-Wroker</span>
+    
+                    <!-- Card info -->
+                    <div class="info">
+                        <div class="info__icon">
+                            <i class="fa-duotone fa-regular fa-circle-info"></i>
+                        </div>
+    
+                        <div class="info__border">
+                            <div class="info__perfil">
+                                <img src="./assets/images/ibraam-youssef.png" alt="card image" class="info__img">
+                            </div>
+                        </div>
+    
+                        <div class="info__data">
+                            <h3 class="info__name">Ibraam Youssef</h3>
+                            <span class="info__profession">CO-Wroker</span>
+                            <span class="info__location">Giza - Egypt</span>
+                        </div>
+    
+                        <div class="info__social">
+                            <a href="https://www.linkedin.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://dribbble.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </span>
+                            </a>
+    
+                            <a href="https://github.com/" target="_blank" class="info__social-link">
+                                <span class="info__social-icon">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="arduino-section" id="code">
+            <div class="code">
+
+                <div class="code-head">
+                    <a href=""><img src="./assets/images/ino.png" alt="">Arduino_Code.ino</a>
+
+                    <div class="circles">
+                        <div class="circle red"></div>
+                        <div class="circle yellow"></div>
+                        <div class="circle green"></div>
+                    </div>
+                    
+                </div>
+                
+                <code>
+<span class="keyword">#include</span> <span class="string">&lt;WiFi.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;WebServer.h&gt;</span>
+
+<span class="comment">// Replace with your network credentials</span>
+<span class="keyword">const</span> <span class="keyword">char*</span> <span class="variable">ssid</span> = <span class="string">"YOUR_SSID"</span>; <span class="comment">// Your WiFi SSID</span>
+<span class="keyword">const</span> <span class="keyword">char*</span> <span class="variable">password</span> = <span class="string">"YOUR_PASSWORD"</span>; <span class="comment">// Your WiFi Password</span>
+
+<span class="keyword">WebServer</span> <span class="variable">server</span>(<span class="number">80</span>); <span class="comment">// Create a web server on port 80</span>
+
+<span class="keyword">const</span> <span class="keyword">char*</span> <span class="variable">jsonData</span> = <span class="string">"[{\"id\": 1, \"name\": \"John Doe\", \"email\": \"john@example.com\"},"
+                        "{\"id\": 2, \"name\": \"Jane Smith\", \"email\": \"jane@example.com\"},"
+                        "{\"id\": 3, \"name\": \"Sam Brown\", \"email\": \"sam@example.com\"}]"</span>; <span class="comment">// JSON data to be served</span>
+
+<span class="keyword">void</span> <span class="function">handleRoot</span>() {
+    <span class="variable">server</span>.<span class="function">send</span>(<span class="number">200</span>, <span class="string">"application/json"</span>, <span class="variable">jsonData</span>);
+}
+
+<span class="keyword">void</span> <span class="function">setup</span>() {
+    <span class="comment">// Start the Serial communication</span>
+    <span class="variable">Serial</span>.<span class="function">begin</span>(<span class="number">115200</span>);
+
+    <span class="comment">// Connect to Wi-Fi</span>
+    <span class="variable">WiFi</span>.<span class="function">begin</span>(<span class="variable">ssid</span>, <span class="variable">password</span>);
+    <span class="variable">Serial</span>.<span class="function">print</span>(<span class="string">"Connecting to WiFi"</span>);
+
+    <span class="comment">// Wait for connection</span>
+    <span class="keyword">while</span> (<span class="variable">WiFi</span>.<span class="function">status</span>() != <span class="variable">WL_CONNECTED</span>) {
+        <span class="variable">delay</span>(<span class="number">500</span>);
+        <span class="variable">Serial</span>.<span class="function">print</span>(<span class="string">". "</span>);
+    }
+
+    <span class="variable">Serial</span>.<span class="function">println</span>();
+    <span class="variable">Serial</span>.<span class="function">println</span>(<span class="string">"Connected to WiFi"</span>);
+    <span class="variable">Serial</span>.<span class="function">print</span>(<span class="string">"IP Address: "</span>);
+    <span class="variable">Serial</span>.<span class="function">println</span>(<span class="variable">WiFi</span>.<span class="function">localIP</span>());
+
+    <span class="comment">// Define the route for the root URL</span ```html
+    <span class="variable">server</span>.<span class="function">on</span>(<span class="string">"/"</span>, <span class="function">handleRoot</span>);
+
+    <span class="comment">// Start the server</span>
+    <span class="variable">server</span>.<span class="function">begin</span>();
+    <span class="variable">Serial</span>.<span class="function">println</span>(<span class="string">"HTTP server started"</span>);
+}
+
+<span class="keyword">void</span> <span class="function">loop</span>() {
+    <span class="comment">// Handle client requests</span>
+    <span class="variable">server</span>.<span class="function">handleClient</span>();
+}
+                </code>
+            </div>
+            <div class="arduino-content">
+                <h2 class="title">Add code Snippets to your project.</h2>
+                <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</p>
+                <div class="links">
+                    <button class="button-primary">Documntation</button>
+                    <button class="button-secondry">View on Github</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="footer-head">
+            <h3>Get started</h3>
+            <h2>Boost your productivity. Start using our app today.</h2>
+            <p>Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
+            <a href="./dashboard.html">Get started</a>
+        </div>
+
+        <hr class="break">
+
+        <footer>
+            <div class="footer-bottom">
+               <p>© 2024 Arena, Inc. All rights reserved.</p>
+               <div class="social">
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+               </div>
+            </div>
+        </footer>
+       
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+        
+    </body>
+</html>
