@@ -81,7 +81,7 @@ body {
   .toast.success .wave {
     fill : #25e4525d;
   }
-  .icon-container {
+  .toast-icon-container {
     width: 35px;
     height: 35px;
     display: flex;
@@ -91,20 +91,20 @@ body {
     border-radius: 50%;
     margin-left: 8px;
   }
-  .toast.error .icon-container {
+  .toast.error .toast-icon-container {
     background-color: #fc0c0c48;
   }
-  .toast.success .icon-container {
+  .toast.success .toast-icon-container {
     background-color: #25e4525d;
   }
-  .icon {
+  .toast-icon {
     font-size: 19px;
     color: #db970e;
   }
-  .toast.error .icon {
+  .toast.error .toast-icon {
     color: #d10d0d;
   }
-  .toast.success .icon {
+  .toast.success .toast-icon {
     color: #17a338;
   }
   .message-text-container {
@@ -264,7 +264,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     background: #fff;
     border: 1px solid #dcdcdc;
@@ -274,7 +274,7 @@ header {
 }
 
 header .logo img {
-    height: 40px;
+    height: 60px;
 }
 
 header .profile {
@@ -422,7 +422,7 @@ header .profile {
 
 #profile-content .edit {
     position: absolute;
-    top: 140px;
+    top: 100px;
     right: 30px;
     padding: 10px;
     font-size: 22px;
