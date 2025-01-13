@@ -866,3 +866,6 @@ header .profile {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
+#main-chart, #second-chart, #third-chart, #main-chart-two, #second-chart-two, #third-chart-two, #main-chart-three, #second-chart-three, #third-chart-three {
+    height: 300px; /* Set a fixed height */
+}
