@@ -1,3 +1,4 @@
+
 setTimeout(() => {
     document.getElementById('loading').classList.add('hide');
     setTimeout(() => {
@@ -133,41 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.getElementById('download-pdf').addEventListener('click', function(e) {
-    e.preventDefault();
-    const { jsPDF } = window.jspdf;
 
-    // Use html2canvas to capture the content of the element
-    html2canvas(document.getElementById('content')).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4');
-
-        const imgWidth = 210; // A4 width in mm
-        const pageHeight = 297; // A4 height in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let heightLeft = imgHeight;
-
-        let position = 0;
-
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-
-        while (heightLeft >= 0) {
-            position = heightLeft - imgHeight;
-            pdf.addPage();
-            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-        }
-
-        pdf.save('generated.pdf');
-    }).catch(error => {
-        console.error('Error capturing the content:', error);
-    });
-});
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut, updateProfile, updatePassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-storage.js";
+import { getAuth, onAuthStateChanged, signOut, updateProfile, updatePassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -188,9 +159,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const storage = getStorage(app);
+const db = getDatabase(app);
 
-
+const dbRef = ref(db);
 // const docRef = doc(db, "data", "reads");
 // const docSnap = await getDoc(docRef);
 
@@ -201,6 +172,784 @@ const storage = getStorage(app);
 //   console.log("No such document!");
 // }
 
+// Initial data
+let MainChartSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let SecondChartSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let ThirdChartSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let MainChartTwoSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let SecondChartTwoSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let ThirdChartTwoSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let MainChartThreeSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+let SecondChartThreeSeriesData = [
+    {
+        name: "Solar Irradiance",
+        data: [],
+        color: "#1A56DB",
+    }
+];
+
+
+
+const MainChartOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: MainChartSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const SecondChartOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: SecondChartSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const ThirdChartOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: ThirdChartSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const MainChartTwoOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: MainChartTwoSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const SecondChartTwoOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: SecondChartTwoSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const ThirdChartTwoOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: ThirdChartTwoSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+
+
+const MainChartThreeOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: MainChartThreeSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+const SecondChartThreeOptions = {
+    yaxis: {
+        show: false,
+        labels: {
+            formatter: function (value) {
+                return value + ' W/m²'; // Assuming Solar Irradiance is in W/m²
+            }
+        }
+    },
+    chart: {
+        height: "320px",
+        maxWidth: "100%",
+        type: "area",
+        fontFamily: "Poppins, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: true,
+        },
+        animations: {
+            enabled: false,
+            easing: 'easein',
+            speed: 800,
+            dynamicAnimation: {
+                speed: 350
+            }
+        }
+    },
+    tooltip: {
+        enabled: true,
+        x: {
+            show: false,
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            opacityFrom: 0.55,
+            opacityTo: 0,
+            shade: "#1C64F2",
+            gradientToColors: ["#1C64F2"],
+        },
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 6,
+    },
+    grid: {
+        show: false,
+        strokeDashArray: 4,
+        padding: {
+            left: 2,
+            right: 2,
+            top: -26
+        },
+    },
+    series: SecondChartThreeSeriesData,
+    xaxis: {
+        categories: [],
+        labels: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false,
+        },
+    },
+};
+
+
+
+const mainChart = new ApexCharts(document.getElementById("main-chart"), MainChartOptions);
+const secondChart = new ApexCharts(document.getElementById("second-chart"), SecondChartOptions);
+const thirdChart = new ApexCharts(document.getElementById("third-chart"), ThirdChartOptions);
+const mainChartTwo = new ApexCharts(document.getElementById("main-chart-two"), MainChartTwoOptions);
+const secondChartTwo = new ApexCharts(document.getElementById("second-chart-two"), SecondChartTwoOptions);
+const thirdChartTwo = new ApexCharts(document.getElementById("third-chart-two"), ThirdChartTwoOptions);
+const mainChartThree = new ApexCharts(document.getElementById("main-chart-three"), MainChartThreeOptions);
+const secondChartThree = new ApexCharts(document.getElementById("second-chart-three"), SecondChartThreeOptions);
+
+mainChart.render();
+secondChart.render();
+thirdChart.render();
+mainChartTwo.render();
+secondChartTwo.render();
+thirdChartTwo.render();
+mainChartThree.render();
+secondChartThree.render();
+
+
+async function fetchDataAndUpdateChart() {
+    try {
+        let timeCounter = 0; // Initialize timeCounter at the beginning
+
+        get(child(dbRef, `data`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val(); // Get the data from the snapshot
+                console.log(data); // Log the data for debugging
+
+                // Update MainChart
+                MainChartSeriesData[0].data.push(data.GeneratedVoltage);
+                MainChartOptions.xaxis.categories.push(timeCounter);
+                if (MainChartSeriesData[0].data.length > 7) {
+                    MainChartSeriesData[0].data.shift();
+                    MainChartOptions.xaxis.categories.shift();
+                }
+                mainChart.updateSeries(MainChartSeriesData);
+                mainChart.updateOptions(MainChartOptions);
+
+                // Update SecondChart
+                SecondChartSeriesData[0].data.push(data.GeneratedCurrent);
+                SecondChartOptions.xaxis.categories.push(timeCounter);
+                if (SecondChartSeriesData[0].data.length > 7) {
+                    SecondChartSeriesData[0].data.shift();
+                    SecondChartOptions.xaxis.categories.shift();
+                }
+                secondChart.updateSeries(SecondChartSeriesData);
+                secondChart.updateOptions(SecondChartOptions);
+
+                // Update ThirdChart
+                ThirdChartSeriesData[0].data.push(data.GeneratedPower); // Replace with actual data field
+                ThirdChartOptions.xaxis.categories.push(timeCounter);
+                if (ThirdChartSeriesData[0].data.length > 7) {
+                    ThirdChartSeriesData[0].data.shift();
+                    ThirdChartOptions.xaxis.categories.shift();
+                }
+                thirdChart.updateSeries(ThirdChartSeriesData);
+                thirdChart.updateOptions(ThirdChartOptions);
+
+                // Update MainChartTwo
+                MainChartTwoSeriesData[0].data.push(data.BatteryCurrent); // Replace with actual data field
+                MainChartTwoOptions.xaxis.categories.push(timeCounter);
+                if (MainChartTwoSeriesData[0].data.length > 7) {
+                    MainChartTwoSeriesData[0].data.shift();
+                    MainChartTwoOptions.xaxis.categories.shift();
+                }
+                mainChartTwo.updateSeries(MainChartTwoSeriesData);
+                mainChartTwo.updateOptions(MainChartTwoOptions);
+
+                // Update SecondChartTwo
+                SecondChartTwoSeriesData[0].data.push(data.BatteryVoltage); // Replace with actual data field
+                SecondChartTwoOptions.xaxis.categories.push(timeCounter);
+                if (SecondChartTwoSeriesData[0].data.length > 7) {
+                    SecondChartTwoSeriesData[0].data.shift();
+                    SecondChartTwoOptions.xaxis.categories.shift();
+                }
+                secondChartTwo.updateSeries(SecondChartTwoSeriesData);
+                secondChartTwo.updateOptions(SecondChartTwoOptions);
+
+                // Update ThirdChartTwo
+                ThirdChartTwoSeriesData[0].data.push(data.ConsumedPower); // Replace with actual data field
+                ThirdChartTwoOptions.xaxis.categories.push(timeCounter);
+                if (ThirdChartTwoSeriesData[0].data.length > 7) {
+                    ThirdChartTwoSeriesData[0].data.shift();
+                    ThirdChartTwoOptions.xaxis.categories.shift();
+                }
+                thirdChartTwo.updateSeries(ThirdChartTwoSeriesData);
+                thirdChartTwo.updateOptions(ThirdChartTwoOptions);
+
+                // Update MainChartThree
+                MainChartThreeSeriesData[0].data.push(data.BatteryCharge); // Replace with actual data field
+                MainChartThreeOptions.xaxis.categories.push(timeCounter);
+                if (MainChartThreeSeriesData[0].data.length > 7) {
+                    MainChartThreeSeriesData[0].data.shift();
+                    MainChartThreeOptions.xaxis.categories.shift();
+                }
+                mainChartThree.updateSeries(MainChartThreeSeriesData);
+                mainChartThree.updateOptions(MainChartThreeOptions);
+
+                // Update SecondChartThree
+                SecondChartThreeSeriesData[0].data.push(data.StorageUnitTemperature); // Replace with actual data field
+                SecondChartThreeOptions.xaxis.categories.push(timeCounter);
+                if (SecondChartThreeSeriesData[0].data.length > 7) {
+                    SecondChartThreeSeriesData[0].data.shift();
+                    SecondChartThreeOptions.xaxis.categories.shift();
+                }
+                secondChartThree.updateSeries(SecondChartThreeSeriesData);
+                secondChartThree.updateOptions(SecondChartThreeOptions);
+
+                // Increment timeCounter
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+// Fetch data and update the chart every 2 seconds
+setInterval(fetchDataAndUpdateChart, 2000);
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -279,25 +1028,3 @@ const signoutBtn = document.getElementById('signout');
     });
 });
 
-document.getElementById('profile-img-input').addEventListener('change', (event) => {
-  const file = event.target.files[0];
-  if (file) {
-      const storageRef = ref(storage, 'profileImages/' + file.name);
-      uploadBytes(storageRef, file).then((snapshot) => {
-          console.log('Uploaded a profile image!');
-          getDownloadURL(snapshot.ref).then((downloadURL) => {
-            updateProfile(auth.currentUser, {
-              photoURL: downloadURL
-          }).then(() => {
-              showToast('success', 'Profile image updated successfully');
-          }).catch((error) => {
-              console.error(error);
-          });
-              document.getElementById('profile-img').src = downloadURL; // Update the profile image
-              document.getElementById('user-img').src = downloadURL; // Update the profile image
-          });
-      }).catch((error) => {
-          console.error('Error uploading profile image:', error);
-      });
-  }
-});
